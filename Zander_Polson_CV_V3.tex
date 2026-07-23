@@ -1,0 +1,178 @@
+% Compile with pdfLaTeX.
+% The helvet package supplies a Helvetica-compatible sans-serif family.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,top=10.5mm,bottom=10.5mm,left=12mm,right=12mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+\definecolor{cvblue}{HTML}{164F8C}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=black,
+  linkcolor=black,
+  pdfauthor={Zander Polson},
+  pdftitle={Zander Polson CV}
+}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{0.95}
+\raggedbottom
+\emergencystretch=1em
+
+\newcommand{\cvsection}[1]{%
+  \vspace{0.90em}%
+  {\color{cvblue}\bfseries\fontsize{11.2}{11.8}\selectfont #1}\par
+    \vspace{-0.5em}%
+  {\color{black!58}\rule{\linewidth}{0.35pt}}\par
+  \vspace{0.38em}%
+}
+
+\newcommand{\job}[4]{%
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{37mm}@{}}
+    \bfseries #1 & \bfseries #2 \\
+    \itshape #3 & \itshape #4
+  \end{tabularx}\par
+  \vspace{-0.10em}%
+}
+
+\newcommand{\project}[1]{%
+  \vspace{0.18em}%
+  {\bfseries #1}\par
+  \vspace{-0.12em}%
+}
+
+\newcommand{\sidebarheading}[1]{%
+  \vspace{0.50em}%
+  {\bfseries #1}\par
+  \vspace{0.08em}%
+}
+
+\newcommand{\education}[4]{%
+  {\bfseries\fontsize{9.9}{10.5}\selectfont #1}\par
+  {\bfseries\fontsize{9.9}{10.5}\selectfont #2}\par
+  {\itshape #3}\par
+  {\itshape #4}\par
+  \vspace{0.52em}%
+}
+
+\setlist[itemize]{
+  leftmargin=1.05em,
+  label=\textbullet,
+  labelsep=0.30em,
+  topsep=0pt,
+  partopsep=0pt,
+  parsep=0pt,
+  itemsep=0.05em
+}
+
+\begin{document}
+\fontsize{10}{11.2}\selectfont
+
+% Header
+{\color{cvblue}\fontsize{20.5}{21}\selectfont ZANDER POLSON}\par
+\vspace{0.12em}
+{\fontsize{7.9}{8.6}\selectfont Computer Engineer | Robotics, Embedded Systems and Computer Vision}\par
+\vspace{0.05em}
+{\fontsize{7.8}{8.5}\selectfont
+	Japan | +27 749248224 |
+	\href{mailto:zander@polsons.info}{\underline{zander@polsons.info}} |
+	\href{https://github.com/GitM3}{\underline{github.com/GitM3}}}\par
+
+\vspace{0.45em}
+
+% Main two-column structure. Content is laid out with normal LaTeX flow;
+% there is no absolute positioning or coordinate-based sentence placement.
+\begin{minipage}[t]{0.686\textwidth}
+	\RaggedRight
+	\cvsection{PROFILE}
+	Computer engineer and Advanced Robotics master’s student interested in embedded
+	systems, robotics, computer vision, and system integration.
+	Experience in startup R\&D, helping develop embedded IoT and perception systems
+	from prototype through client-facing demonstrations.
+	My current research explores plant-based simulation and synthetic data
+	for robotic perception in agricultural robotics. Outside engineering, I pursue fitness and various adventure-sports.
+
+	\cvsection{EXPERIENCE}
+	\job{UViRCO}{Nov 2024 - Jun 2025}{Junior Software Engineer}{South Africa / China}
+	\begin{itemize}
+		\item Helped take the platform from prototype to first deployment and client demonstrations in less than six months, including an on-site demonstration for clients in China.
+		\item Developed an embedded IoT and computer-vision platform for Raspberry Pi Compute Module 4 and 5 using C/C++, Python, and OpenCV, delivering a functional prototype capable of real-time image analysis.
+		\item Integrated Redis-based microservices, GStreamer video pipelines, and an ONVIF C server into a Docker Compose deployment, enabling scalable video streaming and standardized device communication.
+		\item Built CI/CD workflows with GitHub Actions and contributed a Python remote-update service for edge devices, reducing deployment time and ensuring reliable over-the-air updates.
+	\end{itemize}
+	\vspace{0.24em}
+
+	\job{Rapid Mobile}{Jun 2024 - Jul 2024}{Software Engineering Intern}{South Africa}
+	\begin{itemize}
+		\item Implemented a new web-interface feature in a custom Qt-based desktop application using C++ and QWebEngine, enabling users to access a remote radio interface in real-time.
+	\end{itemize}
+	\vspace{0.24em}
+
+	\job{Various organisations}{Feb 2020 - Nov 2020}{Community and Hospitality Volunteer}{Japan}
+	\begin{itemize}
+		\item Volunteered at Tannenhof ski-resort hotel in Nozawa Onsen, where I assisted the owner with general maintenance, guest check-ins and international guest tours to ensure a welcoming and memorable experience.
+		\item Lived and worked with the Dana Village community and Chardjou-sol organic tomato farm in Fukushima, supporting daily farm operations such as planting and harvesting while learning about no-irrigation farming techniques.
+		\item Volunteered at Hisaeda Udon restaurant in Takamatsu, gaining practical experience in a Japanese-speaking work environment.
+	\end{itemize}
+
+	\cvsection{PROJECTS}
+	\project{B.Eng. Final-Year Project -- Real-Time Mobile SLAM }
+	\begin{itemize}
+		\item Developed a real-time Android SLAM application using Qt and OpenCV, with visual odometry as a fallback localization mode.
+	\end{itemize}
+
+	\project{Gauteng Department of Roads and Transport -- Emission station IoT Prototype }
+	\begin{itemize}
+		\item Developed and delivered a PCB-based, solar-powered IoT prototype for monitoring environmental pollution, using GSM connectivity for remote data transmission, through the University of Pretoria’s Joint Community-Based Project.
+	\end{itemize}
+
+	\project{Team Project -- RF-DETR Bottle-Following Robot}
+	\begin{itemize}
+		\item Developed the perception layer of a bottle-following mobile robot using RF-DETR on an NVIDIA Jetson Nano. Collaborated with other Japanese graduates who developed the LiDAR-based navigation stack. We integrated the perception and navigation components using ROS to enable real-time target detection and following.
+	\end{itemize}
+
+	\cvsection{AWARDS}
+	\begin{itemize}
+		\item \textbf{UP Robot Race Day:} Finalist in the University of Pretoria EECE Department's 18-bit microcontroller-based autonomous robotic vehicle race.
+	\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.279\textwidth}
+	\RaggedRight
+	\cvsection{EDUCATION}
+	\education{MS, Advanced Robotics}{2025 - Present}{Chiba Institute of Technology}{Japan}
+	\education{B.Eng., Computer Engineering}{2021 - 2024}{University of Pretoria}{South Africa}
+
+	\cvsection{SKILLS}
+	\sidebarheading{Programming}
+	C/C++\par
+	Python\par
+	Qt/QML\par
+	MATLAB\par
+
+	\sidebarheading{Embedded Devices}
+	STM32\par
+	Raspberry Pi CM4/CM5\par
+	NVIDIA Jetson Nano\par
+	Intel Altera SoC FPGA\par
+	PIC18\par
+
+	\sidebarheading{Languages}
+	English\par
+	Japanese (JLPT N3)\par
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Bottle-following robot perception</title>
+  <desc id="desc">Abstract mobile robot detecting a bottle using a bounding box and LiDAR rays.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#242933"/><stop offset="1" stop-color="#2e3440"/></linearGradient>
+    <radialGradient id="glow" cx="72%" cy="40%" r="55%"><stop stop-color="#b48ead" stop-opacity=".2"/><stop offset="1" stop-color="#b48ead" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <rect width="1200" height="760" fill="url(#glow)"/>
+  <path d="M0 618Q300 540 600 620T1200 610V760H0Z" fill="#1f242d"/>
+  <g transform="translate(132 316)">
+    <rect x="70" y="95" width="340" height="145" rx="45" fill="#3b4252" stroke="#88c0d0" stroke-width="5"/>
+    <rect x="128" y="36" width="188" height="92" rx="24" fill="#434c5e" stroke="#81a1c1" stroke-width="5"/>
+    <circle cx="158" cy="102" r="16" fill="#a3be8c"/>
+    <circle cx="286" cy="102" r="16" fill="#b48ead"/>
+    <circle cx="142" cy="243" r="56" fill="#2e3440" stroke="#d8dee9" stroke-width="9"/>
+    <circle cx="341" cy="243" r="56" fill="#2e3440" stroke="#d8dee9" stroke-width="9"/>
+    <rect x="194" y="8" width="62" height="36" rx="12" fill="#8fbcbb"/>
+  </g>
+  <g transform="translate(824 230)">
+    <path d="M82 34h58v54c0 18 7 28 18 45 11 18 17 40 17 66v175H48V199c0-26 6-48 18-66 11-17 16-27 16-45Z" fill="#5e81ac" stroke="#88c0d0" stroke-width="6"/>
+    <rect x="76" y="0" width="70" height="43" rx="12" fill="#81a1c1"/>
+    <path d="M69 231h87" stroke="#eceff4" stroke-width="7" opacity=".75"/>
+  </g>
+  <rect x="780" y="185" width="260" height="442" rx="12" fill="none" stroke="#a3be8c" stroke-width="8" stroke-dasharray="20 12"/>
+  <g stroke="#b48ead" stroke-width="4" opacity=".58">
+    <path d="M510 392 780 232M510 392 780 326M510 392 780 430M510 392 780 530M510 392 780 612"/>
+  </g>
+  <g font-family="sans-serif">
+    <rect x="798" y="145" width="214" height="48" rx="24" fill="#a3be8c"/>
+    <text x="825" y="177" fill="#2e3440" font-size="21" font-weight="800">BOTTLE  0.94</text>
+    <text x="70" y="690" fill="#eceff4" font-size="29" font-weight="700" letter-spacing="5">ROBOT PERCEPTION</text>
+    <text x="70" y="724" fill="#aeb8c8" font-size="18">RF-DETR · ROS integration · LiDAR navigation</text>
+  </g>
+</svg>
