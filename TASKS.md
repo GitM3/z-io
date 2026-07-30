@@ -1,0 +1,8 @@
+- Too much text on landing page. Make HERO background the NARI image. Add small profile icon (Profile.png on to the status bar next to Zander Polson text). The profile pic on the hero page should be the robomech one.
+- For the Profile section, the text should match the intro on the cv.tex 
+- concat the 3 slam figures vertically and place in the Real-Time Mobile SLAM image holder
+- Add a Robot Race banner in the Projects section (use the race_1) image
+- Add a UViRCO project banner using the UViRCO.jpg (prototype to client), IoT camera, remote controllable, built-in image analysis (SUV Spectrometry)
+- Emission Station IoT Prototype needs to have the GDRT image
+- RF-DETR Bottle-Following robot should have the butler-bot video in the project image holder, should also be on autoplay if possible.
+- Remove github project carousal

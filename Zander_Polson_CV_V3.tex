@@ -5,6 +5,7 @@
 \usepackage[a4paper,top=10.5mm,bottom=10.5mm,left=12mm,right=12mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
+\usepackage{fontawesome5}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{xcolor}
 \usepackage{tabularx}
@@ -79,7 +80,7 @@
 }
 
 \begin{document}
-\fontsize{10}{11.2}\selectfont
+\fontsize{10}{10.8}\selectfont
 
 % Header
 {\color{cvblue}\fontsize{20.5}{21}\selectfont ZANDER POLSON}\par
@@ -87,11 +88,11 @@
 {\fontsize{7.9}{8.6}\selectfont Computer Engineer | Robotics, Embedded Systems and Computer Vision}\par
 \vspace{0.05em}
 {\fontsize{7.8}{8.5}\selectfont
-	Japan | +27 749248224 |
+	\faWhatsapp\ +27 749248224 |
 	\href{mailto:zander@polsons.info}{\underline{zander@polsons.info}} |
 	\href{https://github.com/GitM3}{\underline{github.com/GitM3}}}\par
 
-\vspace{0.45em}
+\vspace{0.05em} %
 
 % Main two-column structure. Content is laid out with normal LaTeX flow;
 % there is no absolute positioning or coordinate-based sentence placement.
@@ -101,25 +102,31 @@
 	Computer engineer and Advanced Robotics master’s student interested in embedded
 	systems, robotics, computer vision, and system integration.
 	Experience in startup R\&D, helping develop embedded IoT and perception systems
-	from prototype through client-facing demonstrations.
-	My current research explores plant-based simulation and synthetic data
-	for robotic perception in agricultural robotics. Outside engineering, I pursue fitness and various adventure-sports.
+	from prototype to client-facing demonstrations.
+	Outside of engineering, I pursue fitness and various adventure-sports.
 
 	\cvsection{EXPERIENCE}
-	\job{UViRCO}{Nov 2024 - Jun 2025}{Junior Software Engineer}{South Africa / China}
+	\job{Chiba Institute of Technology}{Sep 2025 - Present}{Master's Program in Advanced Robotics}{Japan}
 	\begin{itemize}
-		\item Helped take the platform from prototype to first deployment and client demonstrations in less than six months, including an on-site demonstration for clients in China.
-		\item Developed an embedded IoT and computer-vision platform for Raspberry Pi Compute Module 4 and 5 using C/C++, Python, and OpenCV, delivering a functional prototype capable of real-time image analysis.
+		\item Currently pursuing graduate studies in Robotics, with research focusing on synthetic data creation for agricultural robotic applications.
+		\item Presented work at RoboMech2026 conference on scalable sweet-pepper plant generation pipeline using Blender and generative AI models.
+	\end{itemize}
+
+	\vspace{0.34em}%%
+	\job{UViRCO}{Nov 2024 - Jun 2025}{Junior Embedded Systems Engineer}{South Africa / China}
+	\begin{itemize}
+		\item Helped take the platform from prototype to first deployment in less than six months, including an on-site demonstration for major clients in China.
+		\item Developed an embedded IoT and computer-vision platform for Raspberry Pi Compute Module 4/5 using C/C++, Python, and OpenCV, delivering a functional prototype capable of real-time image analysis.
 		\item Integrated Redis-based microservices, GStreamer video pipelines, and an ONVIF C server into a Docker Compose deployment, enabling scalable video streaming and standardized device communication.
 		\item Built CI/CD workflows with GitHub Actions and contributed a Python remote-update service for edge devices, reducing deployment time and ensuring reliable over-the-air updates.
 	\end{itemize}
-	\vspace{0.24em}
+	\vspace{0.34em}%%
 
 	\job{Rapid Mobile}{Jun 2024 - Jul 2024}{Software Engineering Intern}{South Africa}
 	\begin{itemize}
-		\item Implemented a new web-interface feature in a custom Qt-based desktop application using C++ and QWebEngine, enabling users to access a remote radio interface in real-time.
+		\item Implemented a web-interface feature in a custom Qt-based desktop application using C++ and QWebEngine, enabling client to access a remote radio interface in real-time.
 	\end{itemize}
-	\vspace{0.24em}
+	\vspace{0.34em}%%
 
 	\job{Various organisations}{Feb 2020 - Nov 2020}{Community and Hospitality Volunteer}{Japan}
 	\begin{itemize}
@@ -141,7 +148,7 @@
 
 	\project{Team Project -- RF-DETR Bottle-Following Robot}
 	\begin{itemize}
-		\item Developed the perception layer of a bottle-following mobile robot using RF-DETR on an NVIDIA Jetson Nano. Collaborated with other Japanese graduates who developed the LiDAR-based navigation stack. We integrated the perception and navigation components using ROS to enable real-time target detection and following.
+		\item Developed the perception layer of a bottle-following mobile robot using RF-DETR on an NVIDIA Jetson Orin. Collaborated with other Japanese graduates who developed the LiDAR-based navigation stack. We integrated the perception and navigation components using ROS to enable real-time target detection and following.
 	\end{itemize}
 
 	\cvsection{AWARDS}
@@ -153,8 +160,8 @@
 \begin{minipage}[t]{0.279\textwidth}
 	\RaggedRight
 	\cvsection{EDUCATION}
-	\education{MS, Advanced Robotics}{2025 - Present}{Chiba Institute of Technology}{Japan}
-	\education{B.Eng., Computer Engineering}{2021 - 2024}{University of Pretoria}{South Africa}
+	\education{MSc. Advanced Robotics}{2025 - Present}{Chiba Institute of Technology}{Japan}
+	\education{B.Eng. Computer Engineering}{2021 - 2024}{University of Pretoria}{South Africa}
 
 	\cvsection{SKILLS}
 	\sidebarheading{Programming}
@@ -162,11 +169,12 @@
 	Python\par
 	Qt/QML\par
 	MATLAB\par
+	Git\par
 
 	\sidebarheading{Embedded Devices}
 	STM32\par
 	Raspberry Pi CM4/CM5\par
-	NVIDIA Jetson Nano\par
+	NVIDIA Jetson \par
 	Intel Altera SoC FPGA\par
 	PIC18\par
 
