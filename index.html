@@ -395,8 +395,10 @@
           </article>
 
           <article class="project-card project-horizontal" data-reveal>
-            <div class="project-media uv-images">
-              <img src="figures/UViRCO.jpg" alt="UViRCO embedded IoT camera platform" loading="lazy">
+            <div class="project-media auto-carousel uv-images" data-carousel data-interval="3500" aria-label="Automatic slideshow of the UViRCO embedded vision platform">
+              <img class="carousel-slide is-active" src="figures/UViRCO.jpg" alt="UViRCO embedded IoT camera platform">
+              <img class="carousel-slide" src="figures/NARI.jpg" alt="NARI robotics research environment" loading="lazy">
+              <div class="carousel-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
             </div>
             <div class="project-copy">
               <div class="project-topline"><span>Prototype → Client</span><span>02</span></div>
@@ -409,7 +411,7 @@
 
         <div class="project-secondary-row">
           <article class="project-card project-compact" data-reveal>
-            <div class="project-media auto-carousel slam-carousel" data-carousel data-interval="360" aria-label="Automatic slideshow of SLAM feature matching, pose and result figures">
+            <div class="project-media auto-carousel slam-carousel" data-carousel data-interval="2000" aria-label="Automatic slideshow of SLAM feature matching, pose and result figures">
               <img class="carousel-slide is-active" src="figures/SLAM_featurematching.png" alt="SLAM feature-matching output">
               <img class="carousel-slide" src="figures/SLAM_pose.png" alt="SLAM camera-pose output" loading="lazy">
               <img class="carousel-slide" src="figures/SLAM_Results.png" alt="SLAM reconstruction results" loading="lazy">
@@ -436,7 +438,7 @@
           </article>
 
           <article class="project-card project-compact" data-reveal>
-            <div class="project-media auto-carousel" data-carousel data-interval="4100" aria-label="Automatic slideshow of the University of Pretoria Robot Race">
+            <div class="project-media auto-carousel" data-carousel data-interval="3100" aria-label="Automatic slideshow of the University of Pretoria Robot Race">
               <img class="carousel-slide is-active" src="figures/race_1.jpg" alt="University of Pretoria Robot Race team and course">
               <img class="carousel-slide" src="figures/race_2.jpg" alt="Robot Race vehicle testing on the competition course" loading="lazy">
               <span class="race-badge">Finalist</span>
