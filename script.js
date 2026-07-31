@@ -129,7 +129,7 @@ function initialiseCarousel(carousel) {
   let isVisible = true;
 
   const interval = Math.max(
-    2200,
+    1000,
     Number(carousel.dataset.interval) || 3800,
   );
 
@@ -155,23 +155,27 @@ function initialiseCarousel(carousel) {
     }
   };
 
-const start = () => {
-  stop();
+  const start = () => {
+    stop();
 
-  if (!isVisible || document.hidden) {
-    return;
-  }
+    if (!isVisible || document.hidden) {
+      return;
+    }
 
-  timerId = window.setInterval(() => {
-    showSlide(currentIndex + 1);
-  }, interval);
-};
+    timerId = window.setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, interval);
+  };
 
   slides.forEach((slide, index) => {
     slide.setAttribute("aria-hidden", String(index !== 0));
   });
 
   showSlide(0);
+
+  // Start immediately. IntersectionObserver is only an optimisation that pauses
+  // the timer off-screen; it must not be required for the carousel to advance.
+  start();
 
   if ("IntersectionObserver" in window) {
     const carouselObserver = new IntersectionObserver(
@@ -199,9 +203,6 @@ const start = () => {
       start();
     }
   });
-
-
-  start();
 }
 
 document
