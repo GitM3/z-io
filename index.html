@@ -7,6 +7,304 @@
   <meta name="theme-color" content="#242933">
   <title>Zander Polson | Robotics & Embedded Systems</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Layout overrides kept here so only index.html and script.js need updating. */
+    .portfolio-shell {
+      display: block;
+      padding-block: 44px 64px;
+    }
+
+    .project-column {
+      width: 100%;
+    }
+
+    .project-feature-row,
+    .project-secondary-row {
+      display: grid;
+      gap: 18px;
+    }
+
+    .project-feature-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 18px;
+    }
+
+    .project-secondary-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-feature-row .project-card,
+    .project-secondary-row .project-card {
+      display: flex;
+      min-width: 0;
+      height: 100%;
+      margin-bottom: 0;
+      flex-direction: column;
+    }
+
+    .project-feature-row .project-media {
+      height: clamp(290px, 29vw, 390px);
+      min-height: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-secondary-row .project-media {
+      height: clamp(220px, 20vw, 285px);
+      min-height: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-feature-row .project-copy,
+    .project-secondary-row .project-copy {
+      display: flex;
+      flex: 1;
+      align-self: stretch;
+      flex-direction: column;
+      padding: 22px 24px 24px;
+    }
+
+    .project-feature-row .tag-row,
+    .project-secondary-row .tag-row {
+      margin-top: auto;
+    }
+
+    .project-feature-row .project-copy > p,
+    .project-secondary-row .project-copy > p {
+      margin-bottom: 18px;
+    }
+
+    .project-media > img,
+    .project-media > video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .uv-images img {
+      object-position: center;
+    }
+
+    .auto-carousel {
+      position: relative;
+      isolation: isolate;
+      background: #10141a;
+    }
+
+    .auto-carousel .carousel-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      object-fit: cover;
+      transition: opacity 700ms ease;
+    }
+
+    .auto-carousel .carousel-slide.is-active {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .slam-carousel .carousel-slide {
+      object-fit: contain;
+      background: #10141a;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      z-index: 3;
+      right: 14px;
+      bottom: 13px;
+      display: flex;
+      gap: 6px;
+      padding: 7px 9px;
+      border: 1px solid rgba(216, 222, 233, .18);
+      border-radius: 999px;
+      background: rgba(31, 36, 45, .72);
+      backdrop-filter: blur(9px);
+    }
+
+    .carousel-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(236, 239, 244, .35);
+      transition: transform 250ms ease, background 250ms ease;
+    }
+
+    .carousel-dots span.is-active {
+      transform: scale(1.25);
+      background: var(--frost-1);
+    }
+
+    .race-badge {
+      position: absolute;
+      z-index: 4;
+      top: 14px;
+      right: 14px;
+      padding: 6px 10px;
+      border: 1px solid rgba(235, 203, 139, .45);
+      border-radius: 999px;
+      background: rgba(31, 36, 45, .8);
+      color: var(--yellow);
+      font-size: .66rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      backdrop-filter: blur(9px);
+    }
+
+    .cv-section {
+      padding-block: 8px 70px;
+    }
+
+    .cv-section-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .cv-section-heading h2 {
+      margin: 5px 0 0;
+      font-size: clamp(2rem, 3.5vw, 3.25rem);
+    }
+
+    .cv-section-heading > p {
+      max-width: 470px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      text-align: right;
+    }
+
+    .cv-profile {
+      margin-bottom: 18px;
+    }
+
+    .cv-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(290px, .75fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .experience-card,
+    .cv-sidebar .cv-card {
+      padding: clamp(22px, 3vw, 32px);
+    }
+
+    .experience-card .timeline {
+      margin-top: 6px;
+    }
+
+    .experience-card .timeline article {
+      padding: 0 0 30px 28px;
+    }
+
+    .experience-card .timeline article:last-child {
+      padding-bottom: 0;
+    }
+
+    .experience-card .timeline h3 {
+      font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+    }
+
+    .experience-card .timeline .company {
+      font-size: .78rem;
+    }
+
+    .experience-card .timeline ul {
+      display: grid;
+      gap: 7px;
+      margin: 10px 0 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .cv-sidebar {
+      display: grid;
+      gap: 18px;
+    }
+
+    .cv-sidebar .cv-details {
+      grid-template-columns: 1fr;
+    }
+
+    .cv-sidebar .cv-details > div + div {
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      border-left: 0;
+    }
+
+    .cv-sidebar .cv-details h3 {
+      font-size: .96rem;
+    }
+
+    .skills-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .skills-list p {
+      margin: 0;
+    }
+
+    .award-copy {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    @media (max-width: 1000px) {
+      .project-secondary-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-secondary-row .project-card:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .project-secondary-row .project-card:first-child .project-media {
+        height: 330px;
+      }
+
+      .cv-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .project-feature-row,
+      .project-secondary-row {
+        grid-template-columns: 1fr;
+      }
+
+      .project-secondary-row .project-card:first-child {
+        grid-column: auto;
+      }
+
+      .project-feature-row .project-media,
+      .project-secondary-row .project-media,
+      .project-secondary-row .project-card:first-child .project-media {
+        height: 250px;
+      }
+
+      .cv-section-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .cv-section-heading > p {
+        text-align: left;
+      }
+    }
+
+  </style>
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -29,7 +327,7 @@
 
       <div class="nav-links" id="nav-links">
         <a href="#work">Projects</a>
-        <a href="#cv">CV</a>
+        <a href="#cv">Experience</a>
         <a href="#contact">Contact</a>
         <a href="https://github.com/GitM3" target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
@@ -50,12 +348,13 @@
           <p class="hero-lede">Embedded vision, computer vision and system integration for intelligent machines operating beyond the lab.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#work">View my work</a>
+            <a class="button button-primary" href="#cv">View my experience</a>
             <a class="button button-glass" href="mailto:zander@polsons.info">Contact me</a>
           </div>
           <ul class="hero-facts" aria-label="Technical focus">
-            <li><strong>ROS 2</strong><span>Robotics integration</span></li>
+            <li><strong>ROS</strong><span>Robotics integration</span></li>
             <li><strong>C++ / Python</strong><span>Core development</span></li>
-            <li><strong>Japan</strong><span>Busy with Graduate research on agricultural robotics</span></li>
+            <li><strong>Japan</strong><span>Graduate research in agricultural robotics</span></li>
           </ul>
         </div>
 
@@ -69,147 +368,192 @@
       </div>
     </section>
 
-    <section class="portfolio-shell shell" id="work" aria-label="Projects and CV">
+    <section class="portfolio-shell shell" id="work" aria-labelledby="projects-title">
       <div class="project-column">
         <header class="column-heading" data-reveal>
           <div>
             <p class="section-kicker">Selected work</p>
-            <h2>Projects at a glance</h2>
+            <h2 id="projects-title">Projects at a glance</h2>
           </div>
           <p>Hardware-aware software, embedded perception and robotics integration.</p>
         </header>
 
-
-        <article class="project-card project-video" data-reveal>
-          <div class="project-media">
-            <video autoplay muted loop playsinline controls preload="metadata" poster="figures/race_2.jpg" aria-label="RF-DETR bottle-following robot demonstration">
-              <source src="figures/butler-bot.mp4" type="video/mp4">
-              Your browser does not support embedded video.
-            </video>
-          </div>
-          <div class="project-copy">
-            <div class="project-topline"><span>Team Robotics Project</span><span>05</span></div>
-            <h3>RF-DETR Bottle-Following Robot</h3>
-            <p>RF-DETR perception on NVIDIA Jetson, integrated through ROS with a LiDAR navigation stack for real-time target detection and following.</p>
-            <div class="tag-row"><span>RF-DETR</span><span>Jetson</span><span>ROS</span><span>LiDAR</span></div>
-          </div>
-        </article>
-
-      </div>
-        <article class="project-card project-horizontal" data-reveal>
-          <div class="project-media">
-            <img src="figures/UViRCO.jpg" alt="UViRCO embedded IoT camera platform" loading="lazy">
-          </div>
-          <div class="project-copy">
-            <div class="project-topline"><span>Prototype → Client</span><span>02</span></div>
-            <h3>UViRCO Embedded Vision Platform</h3>
-            <p>Remote-controllable IoT camera platform with embedded image analysis for SUV spectrometry, developed from early prototype through client-facing deployment.</p>
-            <div class="tag-row"><span>CM4 / CM5</span><span>OpenCV</span><span>GStreamer</span><span>Docker</span></div>
-          </div>
-        </article>
-
-        <div class="project-pair">
-          <article class="project-card project-compact" data-reveal>
-            <div class="project-media banner-media">
-              <img src="figures/GDRTIoT_crop.jpeg" alt="Gauteng Department of Roads and Transport emission-station IoT prototype" loading="lazy">
+        <div class="project-feature-row">
+          <article class="project-card project-video" data-reveal>
+            <div class="project-media">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="figures/race_2.jpg" aria-label="RF-DETR bottle-following robot demonstration">
+                <source src="figures/butler-bot.mp4" type="video/mp4">
+                Your browser does not support embedded video.
+              </video>
             </div>
             <div class="project-copy">
-              <div class="project-topline"><span>Community Engineering</span><span>03</span></div>
-              <h3>Emission Station IoT Prototype</h3>
-              <p>Solar-powered PCB prototype using GSM connectivity for remote environmental-pollution monitoring.</p>
-              <div class="tag-row"><span>PCB</span><span>IoT</span><span>GSM</span></div>
+              <div class="project-topline"><span>Team Robotics Project</span><span>01</span></div>
+              <h3>RF-DETR Bottle-Following Robot</h3>
+              <p>Developed the perception layer of a bottle-following mobile robot using RF-DETR on an NVIDIA Jetson Orin. Integrated it through ROS with a LiDAR-based navigation stack for real-time target detection and following.</p>
+              <div class="tag-row"><span>RF-DETR</span><span>Jetson Orin</span><span>ROS</span><span>LiDAR</span></div>
             </div>
           </article>
 
-          <article class="project-card project-compact" data-reveal>
-            <div class="project-media banner-media race-banner">
-              <img src="figures/race_1.jpg" alt="University of Pretoria Robot Race team and course" loading="lazy">
-              <span class="media-badge">Finalist</span>
+          <article class="project-card project-horizontal" data-reveal>
+            <div class="project-media uv-images">
+              <img src="figures/UViRCO.jpg" alt="UViRCO embedded IoT camera platform" loading="lazy">
             </div>
             <div class="project-copy">
-              <div class="project-topline"><span>Autonomous Robot Race</span><span>04</span></div>
-              <h3>UP Robot Race</h3>
-              <p>18-bit microcontroller-based autonomous vehicle developed for the University of Pretoria EECE race.</p>
-              <div class="tag-row"><span>PIC18</span><span>Control</span><span>Embedded C</span></div>
+              <div class="project-topline"><span>Prototype → Client</span><span>02</span></div>
+              <h3>UViRCO Embedded Vision Platform</h3>
+              <p>Remote-controllable IoT camera platform with embedded image analysis for UV spectrometry, developed from an early prototype through first deployment and client demonstrations in China.</p>
+              <div class="tag-row"><span>CM4 / CM5</span><span>OpenCV</span><span>GStreamer</span><span>Docker</span></div>
             </div>
           </article>
         </div>
 
+        <div class="project-secondary-row">
+          <article class="project-card project-compact" data-reveal>
+            <div class="project-media auto-carousel slam-carousel" data-carousel data-interval="360" aria-label="Automatic slideshow of SLAM feature matching, pose and result figures">
+              <img class="carousel-slide is-active" src="figures/SLAM_featurematching.png" alt="SLAM feature-matching output">
+              <img class="carousel-slide" src="figures/SLAM_pose.png" alt="SLAM camera-pose output" loading="lazy">
+              <img class="carousel-slide" src="figures/SLAM_Results.png" alt="SLAM reconstruction results" loading="lazy">
+              <div class="carousel-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
+            </div>
+            <div class="project-copy">
+              <div class="project-topline"><span>B.Eng. Final-Year Project</span><span>03</span></div>
+              <h3>Real-Time Mobile SLAM</h3>
+              <p>Developed a real-time Android SLAM application using Qt and OpenCV, with visual odometry as a fallback localization mode.</p>
+              <div class="tag-row"><span>Qt</span><span>OpenCV</span><span>Android</span><span>SLAM</span></div>
+            </div>
+          </article>
 
-        <article class="project-card project-feature" data-reveal>
-          <div class="project-media slam-stack" aria-label="SLAM feature matching, pose and result figures">
-            <img src="figures/SLAM_featurematching.png" alt="SLAM feature-matching output" loading="lazy">
-            <img src="figures/SLAM_pose.png" alt="SLAM camera-pose output" loading="lazy">
-            <img src="figures/SLAM_Results.png" alt="SLAM reconstruction results" loading="lazy">
+          <article class="project-card project-compact" data-reveal>
+            <div class="project-media">
+              <img src="figures/GDRTIoT_crop.jpeg" alt="Gauteng Department of Roads and Transport emission-station IoT prototype" loading="lazy">
+            </div>
+            <div class="project-copy">
+              <div class="project-topline"><span>Community Engineering</span><span>04</span></div>
+              <h3>Emission Station IoT Prototype</h3>
+              <p>Developed and delivered a PCB-based, solar-powered IoT prototype for monitoring environmental pollution, using GSM connectivity for remote data transmission.</p>
+              <div class="tag-row"><span>PCB</span><span>IoT</span><span>GSM</span><span>Solar</span></div>
+            </div>
+          </article>
+
+          <article class="project-card project-compact" data-reveal>
+            <div class="project-media auto-carousel" data-carousel data-interval="4100" aria-label="Automatic slideshow of the University of Pretoria Robot Race">
+              <img class="carousel-slide is-active" src="figures/race_1.jpg" alt="University of Pretoria Robot Race team and course">
+              <img class="carousel-slide" src="figures/race_2.jpg" alt="Robot Race vehicle testing on the competition course" loading="lazy">
+              <span class="race-badge">Finalist</span>
+              <div class="carousel-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+            </div>
+            <div class="project-copy">
+              <div class="project-topline"><span>Autonomous Robot Race</span><span>05</span></div>
+              <h3>UP Robot Race</h3>
+              <p>Finalist in the University of Pretoria EECE Department’s 18-bit microcontroller-based autonomous robotic vehicle race.</p>
+              <div class="tag-row"><span>PIC18</span><span>Control</span><span>Embedded C</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section shell" id="cv" aria-labelledby="cv-title">
+      <header class="cv-section-heading" data-reveal>
+        <div>
+          <p class="section-kicker">Curriculum vitae</p>
+          <h2 id="cv-title">Experience and technical foundation</h2>
+        </div>
+        <p>Fuller role descriptions aligned with the supplied CV rather than shortened landing-page summaries.</p>
+      </header>
+
+      <section class="cv-card profile-card cv-profile" data-reveal>
+        <div class="cv-card-heading">
+          <p class="section-kicker">Profile</p>
+          <span class="status-dot">Available for collaboration</span>
+        </div>
+        <h2>Engineering across the full robotic system.</h2>
+        <p>Computer engineer and Advanced Robotics master’s student interested in embedded systems, robotics, computer vision, and system integration. Experience in startup R&amp;D, helping develop embedded IoT and perception systems from prototype to client-facing demonstrations. Outside of engineering, I pursue fitness and various adventure-sports.</p>
+      </section>
+
+      <div class="cv-layout">
+        <section class="cv-card experience-card" data-reveal>
+          <div class="cv-card-heading">
+            <p class="section-kicker">Experience</p>
+            <span>2020 — Present</span>
           </div>
-          <div class="project-copy">
-            <div class="project-topline"><span>B.Eng. Final-Year Project</span><span>01</span></div>
-            <h3>Real-Time Mobile SLAM</h3>
-            <p>Real-time Android SLAM application built with Qt and OpenCV, with visual odometry as a fallback localisation mode.</p>
-            <div class="tag-row"><span>Qt</span><span>OpenCV</span><span>Android</span><span>SLAM</span></div>
+
+          <div class="timeline">
+            <article>
+              <span class="timeline-date">Sep 2025 — Present</span>
+              <h3>Master’s Program in Advanced Robotics</h3>
+              <p class="company">Chiba Institute of Technology · Japan</p>
+              <ul>
+                <li>Currently pursuing graduate studies in Robotics, with research focusing on synthetic data creation for agricultural robotic applications.</li>
+                <li>Presented work at RoboMech2026 conference on a scalable sweet-pepper plant generation pipeline using Blender and generative AI models.</li>
+              </ul>
+            </article>
+
+            <article>
+              <span class="timeline-date">Nov 2024 — Jun 2025</span>
+              <h3>Junior Embedded Systems Engineer</h3>
+              <p class="company">UViRCO · South Africa / China</p>
+              <ul>
+                <li>Helped take the platform from prototype to first deployment in less than six months, including an on-site demonstration for major clients in China.</li>
+                <li>Developed an embedded IoT and computer-vision platform for Raspberry Pi Compute Module 4/5 using C/C++, Python, and OpenCV, delivering a functional prototype capable of real-time image analysis.</li>
+                <li>Integrated Redis-based microservices, GStreamer video pipelines, and an ONVIF C server into a Docker Compose deployment, enabling scalable video streaming and standardized device communication.</li>
+                <li>Built CI/CD workflows with GitHub Actions and contributed a Python remote-update service for edge devices, reducing deployment time and ensuring reliable over-the-air updates.</li>
+              </ul>
+            </article>
+
+            <article>
+              <span class="timeline-date">Jun 2024 — Jul 2024</span>
+              <h3>Software Engineering Intern</h3>
+              <p class="company">Rapid Mobile · South Africa</p>
+              <ul>
+                <li>Implemented a web-interface feature in a custom Qt-based desktop application using C++ and QWebEngine, enabling the client to access a remote radio interface in real time.</li>
+              </ul>
+            </article>
+
+            <article>
+              <span class="timeline-date">Feb 2020 — Nov 2020</span>
+              <h3>Community and Hospitality Volunteer</h3>
+              <p class="company">Various organisations · Japan</p>
+              <ul>
+                <li>Volunteered at Tannenhof ski-resort hotel in Nozawa Onsen, assisting the owner with general maintenance, guest check-ins and international guest tours.</li>
+                <li>Lived and worked with the Dana Village community and Chardjou-sol organic tomato farm in Fukushima, supporting planting and harvesting while learning about no-irrigation farming techniques.</li>
+                <li>Volunteered at Hisaeda Udon restaurant in Takamatsu, gaining practical experience in a Japanese-speaking work environment.</li>
+              </ul>
+            </article>
           </div>
-        </article>
-      <aside class="cv-column" id="cv">
-        <div class="cv-sticky">
-          <section class="cv-card profile-card" data-reveal>
-            <div class="cv-card-heading">
-              <p class="section-kicker">Profile</p>
-              <span class="status-dot">Available for collaboration</span>
-            </div>
-            <h2>Engineering across the full robotic system.</h2>
-            <p>Computer engineer and Advanced Robotics master’s student interested in embedded systems, robotics, computer vision, and system integration. Experience in startup R&amp;D, helping develop embedded IoT and perception systems from prototype to client-facing demonstrations. Outside of engineering, I pursue fitness and various adventure-sports.</p>
-          </section>
+        </section>
 
-          <section class="cv-card" data-reveal>
-            <div class="cv-card-heading">
-              <p class="section-kicker">Experience</p>
-              <span>2020 — Present</span>
-            </div>
-            <div class="timeline">
-              <article>
-                <span class="timeline-date">Sep 2025 — Present</span>
-                <h3>Master’s Program in Advanced Robotics</h3>
-                <p class="company">Chiba Institute of Technology · Japan</p>
-                <p>Researching synthetic-data creation for agricultural robotics; presented a scalable sweet-pepper plant-generation pipeline at RoboMech 2026.</p>
-              </article>
-              <article>
-                <span class="timeline-date">Nov 2024 — Jun 2025</span>
-                <h3>Junior Embedded Systems Engineer</h3>
-                <p class="company">UViRCO · South Africa / China</p>
-                <p>Developed embedded IoT, vision, streaming and remote-deployment systems for Raspberry Pi CM4/CM5.</p>
-              </article>
-              <article>
-                <span class="timeline-date">Jun — Jul 2024</span>
-                <h3>Software Engineering Intern</h3>
-                <p class="company">Rapid Mobile · South Africa</p>
-                <p>Implemented a real-time remote radio web interface inside a Qt/C++ desktop application.</p>
-              </article>
-              <article>
-                <span class="timeline-date">Feb — Nov 2020</span>
-                <h3>Community &amp; Hospitality Volunteer</h3>
-                <p class="company">Various organisations · Japan</p>
-                <p>Supported hospitality, agriculture and restaurant operations in Japanese-speaking environments.</p>
-              </article>
-            </div>
-          </section>
-
+        <aside class="cv-sidebar" aria-label="Education, skills and awards">
           <section class="cv-card cv-details" data-reveal>
             <div>
               <p class="section-kicker">Education</p>
               <h3>MSc. Advanced Robotics</h3>
               <p>Chiba Institute of Technology<br><span>2025 — Present · Japan</span></p>
+
               <h3>B.Eng. Computer Engineering</h3>
               <p>University of Pretoria<br><span>2021 — 2024 · South Africa</span></p>
             </div>
+
             <div>
-              <p class="section-kicker">Toolbox</p>
-              <p><strong>Programming</strong><br>C/C++, Python, Qt/QML, MATLAB, Git</p>
-              <p><strong>Platforms</strong><br>STM32, Pi CM4/CM5, NVIDIA Jetson, Altera SoC FPGA, PIC18</p>
-              <p><strong>Languages</strong><br>English · Japanese (JLPT N3)</p>
+              <p class="section-kicker">Skills</p>
+              <div class="skills-list">
+                <p><strong>Programming</strong><br>C/C++, Python, Qt/QML, MATLAB, Git</p>
+                <p><strong>Embedded Devices</strong><br>STM32, Raspberry Pi CM4/CM5, NVIDIA Jetson, Intel Altera SoC FPGA, PIC18</p>
+                <p><strong>Languages</strong><br>English · Japanese (JLPT N3)</p>
+              </div>
             </div>
           </section>
-        </div>
-      </aside>
+
+          <section class="cv-card" data-reveal>
+            <div class="cv-card-heading">
+              <p class="section-kicker">Award</p>
+              <span>University of Pretoria</span>
+            </div>
+            <h3>UP Robot Race Day Finalist</h3>
+            <p class="award-copy">Finalist in the EECE Department’s 18-bit microcontroller-based autonomous robotic vehicle race.</p>
+          </section>
+        </aside>
+      </div>
     </section>
 
     <section class="contact shell" id="contact" data-reveal>
