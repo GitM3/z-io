@@ -259,6 +259,62 @@
       font-size: .8rem;
     }
 
+    .research-section {
+      padding-block: 8px 70px;
+    }
+
+    .research-heading {
+      margin-bottom: 22px;
+    }
+
+    .research-heading h2 {
+      margin: 5px 0 0;
+      font-size: clamp(2rem, 3.5vw, 3.25rem);
+    }
+
+    .research-subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .research-posters {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .research-poster {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, .09);
+    }
+
+    .research-poster embed {
+      display: block;
+      width: 100%;
+      height: clamp(420px, 52vw, 720px);
+      border: 0;
+      background: var(--bg-deep);
+    }
+
+    .research-poster figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      padding: 13px 16px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .research-poster a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
     @media (max-width: 1000px) {
       .project-secondary-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -301,6 +357,10 @@
 
       .cv-section-heading > p {
         text-align: left;
+      }
+
+      .research-posters {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -555,6 +615,32 @@
             <p class="award-copy">Finalist in the EECE Department’s 18-bit microcontroller-based autonomous robotic vehicle race.</p>
           </section>
         </aside>
+      </div>
+    </section>
+
+    <section class="research-section shell" id="research" aria-labelledby="research-title">
+      <header class="research-heading" data-reveal>
+        <p class="section-kicker">Research</p>
+        <h2 id="research-title">Current Research</h2>
+        <p class="research-subtitle">Synthetic data for agricultural robotics.</p>
+      </header>
+
+      <div class="research-posters">
+        <figure class="research-poster" data-reveal>
+          <embed src="figures/poster-en.pdf" type="application/pdf" title="English current research poster">
+          <figcaption>
+            <span>English poster</span>
+            <a href="figures/poster-en.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure class="research-poster" data-reveal>
+          <embed src="figures/poster-jp.pdf" type="application/pdf" title="Japanese current research poster">
+          <figcaption>
+            <span>Japanese poster</span>
+            <a href="figures/poster-jp.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
