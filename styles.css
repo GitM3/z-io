@@ -59,7 +59,7 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background 180ms ease, color 180ms ease;
 }
-body::selection { background: var(--frost-1); color: var(--polar-0); }
+::selection { background: var(--frost-1); color: var(--polar-0); }
 img, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
@@ -85,8 +85,8 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -0.035em; }
 .nav-toggle { display: none; }
 
 .hero { position: relative; min-height: 680px; height: min(78svh, 820px); display: grid; align-items: center; overflow: hidden; padding-top: var(--header-height); isolation: isolate; background: #1f242d url("figures/NARI.jpg") center 42% / cover no-repeat; }
-.hero-overlay { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(20,24,31,.97) 0%, rgba(25,31,40,.9) 44%, rgba(25,31,40,.56) 72%, rgba(25,31,40,.64) 100%), linear-gradient(0deg, rgba(20,24,31,.92) 0%, transparent 45%); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(300px, .62fr); align-items: center; gap: clamp(38px, 7vw, 90px); padding-block: 54px 46px; }
+.hero-overlay { position: absolute; z-index: 0; inset: 0; background: linear-gradient(90deg, rgba(20,24,31,.97) 0%, rgba(25,31,40,.9) 44%, rgba(25,31,40,.56) 72%, rgba(25,31,40,.64) 100%), linear-gradient(0deg, rgba(20,24,31,.92) 0%, transparent 45%); }
+.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(300px, .62fr); align-items: center; gap: clamp(38px, 7vw, 90px); padding-block: 54px 46px; }
 .hero-copy { max-width: 770px; color: var(--snow-2); }
 .eyebrow, .section-kicker, .project-topline { color: var(--accent); font-size: 0.7rem; font-weight: 800; letter-spacing: .145em; text-transform: uppercase; }
 .eyebrow { margin-bottom: 17px; }
@@ -184,7 +184,8 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -0.035em; }
 .footer-grid p { margin: 0; }
 .footer-grid a { justify-self: end; color: var(--text); }
 
-[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 560ms cubic-bezier(.2,.7,.2,1), transform 560ms cubic-bezier(.2,.7,.2,1); }
+/* Content remains visible even if JavaScript is blocked or fails to load. */
+[data-reveal] { opacity: 1; transform: none; transition: opacity 560ms cubic-bezier(.2,.7,.2,1), transform 560ms cubic-bezier(.2,.7,.2,1); }
 [data-reveal].is-visible { opacity: 1; transform: none; }
 
 @media (max-width: 1080px) {

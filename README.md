@@ -28,21 +28,10 @@ The site will be available at `https://gitm3.github.io/` after GitHub finishes d
 
 The same files may be placed in any public repository. In **Settings → Pages**, deploy the `main` branch root. All asset links are relative, so the site also works under a project subpath.
 
-## Personal images
+## Images and project content
 
-Add the following files:
-
-- `assets/images/profile-main.jpg` — main portrait, ideally 1600 × 2000 px.
-- `assets/images/profile-secondary.jpg` — laboratory, fieldwork or robot image, ideally square or portrait.
-
-The page displays designed placeholders until those files are added.
-
-## Project links and content
-
-- Edit the three featured project links directly in `index.html`.
-- The bottom carousel automatically loads public, non-fork GitHub repositories from the `GitM3` account.
-- Change `GITHUB_USERNAME`, `REPO_LIMIT` or `HIDDEN_REPOSITORIES` at the top of `script.js`.
-- If the GitHub API is unavailable, the carousel uses local fallback cards defined in `script.js`.
+The page currently uses the local images and video under `figures/`. Edit the
+project and CV content directly in `index.html`.
 
 ## Custom domain
 
@@ -52,6 +41,6 @@ Add a file named `CNAME` containing only your domain, then configure the same do
 
 - `index.html` — semantic page structure and CV content.
 - `styles.css` — Nord theme, responsive layout and animations.
-- `script.js` — navigation, theme toggle, reveal effects and GitHub repository carousel.
-- `assets/images/*.svg` — custom project illustrations.
-- `.nojekyll` — prevents Jekyll processing.
+- `script.js` — navigation, theme toggle, reveal effects and video behavior.
+- `figures/*` — project, portrait and video media used by the page.
+

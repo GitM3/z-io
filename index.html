@@ -49,13 +49,13 @@
           <h1 id="hero-title">I build robotic systems from <span>sensor</span> to <span>deployment</span>.</h1>
           <p class="hero-lede">Embedded vision, computer vision and system integration for intelligent machines operating beyond the lab.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#work">View selected work</a>
+            <a class="button button-primary" href="#work">View my work</a>
             <a class="button button-glass" href="mailto:zander@polsons.info">Contact me</a>
           </div>
           <ul class="hero-facts" aria-label="Technical focus">
             <li><strong>ROS 2</strong><span>Robotics integration</span></li>
             <li><strong>C++ / Python</strong><span>Core development</span></li>
-            <li><strong>Japan</strong><span>Graduate research</span></li>
+            <li><strong>Japan</strong><span>Busy with Graduate research on agricultural robotics</span></li>
           </ul>
         </div>
 
@@ -79,20 +79,23 @@
           <p>Hardware-aware software, embedded perception and robotics integration.</p>
         </header>
 
-        <article class="project-card project-feature" data-reveal>
-          <div class="project-media slam-stack" aria-label="SLAM feature matching, pose and result figures">
-            <img src="figures/SLAM_featurematching.png" alt="SLAM feature-matching output" loading="lazy">
-            <img src="figures/SLAM_pose.png" alt="SLAM camera-pose output" loading="lazy">
-            <img src="figures/SLAM_Results.png" alt="SLAM reconstruction results" loading="lazy">
+
+        <article class="project-card project-video" data-reveal>
+          <div class="project-media">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="figures/race_2.jpg" aria-label="RF-DETR bottle-following robot demonstration">
+              <source src="figures/butler-bot.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
           </div>
           <div class="project-copy">
-            <div class="project-topline"><span>B.Eng. Final-Year Project</span><span>01</span></div>
-            <h3>Real-Time Mobile SLAM</h3>
-            <p>Real-time Android SLAM application built with Qt and OpenCV, with visual odometry as a fallback localisation mode.</p>
-            <div class="tag-row"><span>Qt</span><span>OpenCV</span><span>Android</span><span>SLAM</span></div>
+            <div class="project-topline"><span>Team Robotics Project</span><span>05</span></div>
+            <h3>RF-DETR Bottle-Following Robot</h3>
+            <p>RF-DETR perception on NVIDIA Jetson, integrated through ROS with a LiDAR navigation stack for real-time target detection and following.</p>
+            <div class="tag-row"><span>RF-DETR</span><span>Jetson</span><span>ROS</span><span>LiDAR</span></div>
           </div>
         </article>
 
+      </div>
         <article class="project-card project-horizontal" data-reveal>
           <div class="project-media">
             <img src="figures/UViRCO.jpg" alt="UViRCO embedded IoT camera platform" loading="lazy">
@@ -132,22 +135,20 @@
           </article>
         </div>
 
-        <article class="project-card project-video" data-reveal>
-          <div class="project-media">
-            <video autoplay muted loop playsinline controls preload="metadata" poster="figures/race_2.jpg" aria-label="RF-DETR bottle-following robot demonstration">
-              <source src="figures/butler-bot.mp4" type="video/mp4">
-              Your browser does not support embedded video.
-            </video>
+
+        <article class="project-card project-feature" data-reveal>
+          <div class="project-media slam-stack" aria-label="SLAM feature matching, pose and result figures">
+            <img src="figures/SLAM_featurematching.png" alt="SLAM feature-matching output" loading="lazy">
+            <img src="figures/SLAM_pose.png" alt="SLAM camera-pose output" loading="lazy">
+            <img src="figures/SLAM_Results.png" alt="SLAM reconstruction results" loading="lazy">
           </div>
           <div class="project-copy">
-            <div class="project-topline"><span>Team Robotics Project</span><span>05</span></div>
-            <h3>RF-DETR Bottle-Following Robot</h3>
-            <p>RF-DETR perception on NVIDIA Jetson, integrated through ROS with a LiDAR navigation stack for real-time target detection and following.</p>
-            <div class="tag-row"><span>RF-DETR</span><span>Jetson</span><span>ROS</span><span>LiDAR</span></div>
+            <div class="project-topline"><span>B.Eng. Final-Year Project</span><span>01</span></div>
+            <h3>Real-Time Mobile SLAM</h3>
+            <p>Real-time Android SLAM application built with Qt and OpenCV, with visual odometry as a fallback localisation mode.</p>
+            <div class="tag-row"><span>Qt</span><span>OpenCV</span><span>Android</span><span>SLAM</span></div>
           </div>
         </article>
-      </div>
-
       <aside class="cv-column" id="cv">
         <div class="cv-sticky">
           <section class="cv-card profile-card" data-reveal>
